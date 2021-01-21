@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import LogIn from './components/LogIn';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+import { BrowserRouter, Route } from 'react-router-dom';
+
+class App extends React.Component {
+    // patient prescription state management from previous version
+    state = { prescription_status: false };
+
+    onPrescriptionOrder = () => {
+        this.setState({ prescription_status: true })
+    }
+
+    render() {    
+        console.log("status at app:", this.state.prescription_status)
+        return (
+            <div>
+                <BrowserRouter>
+                    <Route exact path="/"><LogIn prescription_status={this.state.prescription_status} onPrescriptionOrder={this.onPrescriptionOrder}/></Route>                    
+                </BrowserRouter>
+            </div>
+        );
+    };
+};
 
 export default App;
