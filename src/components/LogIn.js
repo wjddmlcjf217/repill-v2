@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './Logo.png'
+import logo from './images/Logo.png'
 import { Link } from 'react-router-dom';
 
 const LogIn = ({ prescription_status, onPrescriptionOrder }) =>{
