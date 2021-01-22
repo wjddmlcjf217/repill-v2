@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// patient schema
+// patient schema with 2 mandatory fields, username and password for authentication
 const patientSchema = new Schema({
   username: {
     type: String,
@@ -13,6 +13,7 @@ const patientSchema = new Schema({
     // username must be  at least 3 characters 
     minlength: 3
   },
+  password: { type: Number, required: true },
   // automatically create fields for when this username was created/modified
   timestamps: true,
 })
