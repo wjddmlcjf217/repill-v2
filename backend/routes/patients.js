@@ -3,7 +3,7 @@ const router = require('express').Router();
 let User = require('../models/patient.model');
 
 // 1st end point that handles incoming http GET requests on the "rooturl/users/" path
-router.route('/physician').get((req, res) => {
+router.route('/').get((req, res) => {
   // mongoose method that gets list of users from mongoDB atlas database
   // .find returns a promise 
   Patient.find()
@@ -14,7 +14,7 @@ router.route('/physician').get((req, res) => {
 });
 
 // 2nd end point handles incoming http POST requests on the "rooturl/patients/add" users path
-router.route('/physician/add').post((req, res) => {
+router.route('/add').post((req, res) => {
 
   // initializes username in the body
   const username = req.body.username;
